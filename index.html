@@ -29,9 +29,22 @@
     <div id="load-container">
         <button id="load-btn" class="ui secondary button">Load More</button>
         <script>
-            if (/Mobi/.test(navigator.userAgent)) {
-                document.getElementById("load-button").style.display = "block";
+            var loadBtn = document.getElementById("load-btn");
+        
+            function toggleLoadBtn() {
+                if (loadBtn.style.display === "none") {
+                    loadBtn.style.display = "block";
+                } else {
+                    loadBtn.style.display = "none";
+                }
             }
+        
+            if (/Mobi/.test(navigator.userAgent)) {
+                loadBtn.style.display = "block";
+            }
+        
+            // Add an event listener to toggle the visibility of the button when it's clicked
+            loadBtn.addEventListener("click", toggleLoadBtn);
         </script>
     </div>
 </body>
