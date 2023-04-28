@@ -1,0 +1,7 @@
+# Site settings
+title: Pokemon Index 
+description: A simple web page created for the purpose of testing. 
+theme: jekyll-theme-minimal
+
+# Build settings
+markdown: kramdown
