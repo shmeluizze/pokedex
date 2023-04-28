@@ -30,22 +30,52 @@
         <button id="load-btn" class="ui secondary button">Load More</button>
         <script>
             var loadBtn = document.getElementById("load-btn");
+            var itemsPerPage = 10; //  number of items to display per page
+            var currentPage = 1;  
         
-            function toggleLoadBtn() {
-                if (loadBtn.style.display === "none") {
-                    loadBtn.style.display = "block";
-                } else {
+            function showNextItems() {
+                // get all the items on the page
+                var items = document.querySelectorAll(".item");
+        
+                // calculate the index of the first and last items to show on the current page
+                var startIndex = (currentPage - 1) * itemsPerPage;
+                var endIndex = startIndex + itemsPerPage;
+        
+                // loop through all the items and toggle their display based on the current page number
+                for (var i = 0; i < items.length; i++) {
+                    if (i >= startIndex && i < endIndex) {
+                        items[i].style.display = "block";
+                    } else {
+                        items[i].style.display = "none";
+                    }
+                }
+        
+                // increment the current page number
+                currentPage++;
+        
+                // if we've shown all the items, hide the load button
+                if (endIndex >= items.length) {
                     loadBtn.style.display = "none";
                 }
             }
         
-            if (/Mobi/.test(navigator.userAgent)) {
+            function displayPokemons() {
+                // to generate and display the pokemons goes here
+        
+                // show the load button after the pokemons have been displayed fully
                 loadBtn.style.display = "block";
+                showNextItems(); // show the first page of items
             }
         
-            // Add an event listener to toggle the visibility of the button when it's clicked
-            loadBtn.addEventListener("click", toggleLoadBtn);
+            // Add an event listener to the generate button to call the displayPokemons() function
+            var generateBtn = document.getElementById("generate-btn");
+            generateBtn.addEventListener("click", displayPokemons);
+        
+            // Add an event listener to load the next page of items when the button is clicked
+            loadBtn.addEventListener("click", showNextItems);
         </script>
+        
+        
     </div>
 </body>
 
