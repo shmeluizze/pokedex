@@ -20,7 +20,7 @@
     <div id="container">
         <div id="poke-container" class="ui cards">
             <!-- will hold the cards for all the pokemon -->
-            <button id="generate-pokemon" class="ui secondary button">Generate Pokemon</button>
+            <button id="generate-btn" class="ui secondary button">Generate Pokemon</button>
         </div>
     </div>
     <div id="delete-container">
@@ -51,18 +51,15 @@
                 // increment the current page number
                 currentPage++;
         
-              
                 if (endIndex >= items.length) {
                     loadBtn.style.display = "none";
                 }
             }
         
             function displayPokemons() {
-               
-        
-                
                 loadBtn.style.display = "block";
-                showNextItems(); // 
+                showNextItems(); 
+            }
         
             // Add an event listener to the generate button to call the displayPokemons() function
             var generateBtn = document.getElementById("generate-btn");
