@@ -27,7 +27,12 @@
         <button id="delete-btn" class="ui red button">Delete</button>
     </div>
     <div id="load-container">
-        <button id="load-more">Load More</button>
+        <button id="load-btn" class="ui secondary button">Load More</button>
+        <script>
+            if (/Mobi/.test(navigator.userAgent)) {
+                document.getElementById("load-button").style.display = "block";
+            }
+        </script>
     </div>
     </div>
 </body>

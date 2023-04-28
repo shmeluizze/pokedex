@@ -26,6 +26,7 @@ function fetchKantoPokemon() {
     fetch('https://pokeapi.co/api/v2/pokemon?limit=151') //This function receives a single 'pokemon' object containing the URL for that Pokemon's data on the PokeAPI. It sends a GET request to that URL to retrieve the data, which is then converted to JSON format.
         .then(response => response.json()) //resulting data is then passed to the 'renderPokemon()' function to cr4eate a card for that Pokemon. 
         .then(function(allpokemon) {
+            allpokemon.results.sort((a, b) => a.name.localeCompare(b.name)); // sort the array by name
             allpokemon.results.forEach(function(pokemon) {
                 fetchPokemonData(pokemon);
             })
