@@ -21,15 +21,19 @@ function getDeleteBtn(){
 }
 
 
-function fetchKantoPokemon(){
+function fetchKantoPokemon() {
     fetch('https://pokeapi.co/api/v2/pokemon?limit=151')
-    .then(response => response.json())
-    .then(function(allpokemon){
-        allpokemon.results.forEach(function(pokemon){
-            fetchPokemonData(pokemon);
+        .then(response => response.json())
+        .then(function(allpokemon) {
+            allpokemon.results.sort(function(a, b) {
+                return a.id - b.id;
+            });
+            allpokemon.results.forEach(function(pokemon) {
+                fetchPokemonData(pokemon);
+            })
         })
-    })
 }
+
 
 function fetchPokemonData(pokemon){
     let url = pokemon.url // <--- this is saving the pokemon url to a variable to use in the fetch. 
