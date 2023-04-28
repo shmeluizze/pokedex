@@ -37,11 +37,9 @@
                 // get all the items on the page
                 var items = document.querySelectorAll(".item");
         
-                // calculate the index of the first and last items to show on the current page
                 var startIndex = (currentPage - 1) * itemsPerPage;
                 var endIndex = startIndex + itemsPerPage;
         
-                // loop through all the items and toggle their display based on the current page number
                 for (var i = 0; i < items.length; i++) {
                     if (i >= startIndex && i < endIndex) {
                         items[i].style.display = "block";
@@ -53,19 +51,18 @@
                 // increment the current page number
                 currentPage++;
         
-                // if we've shown all the items, hide the load button
+              
                 if (endIndex >= items.length) {
                     loadBtn.style.display = "none";
                 }
             }
         
             function displayPokemons() {
-                // to generate and display the pokemons goes here
+               
         
-                // show the load button after the pokemons have been displayed fully
+                
                 loadBtn.style.display = "block";
-                showNextItems(); // show the first page of items
-            }
+                showNextItems(); // 
         
             // Add an event listener to the generate button to call the displayPokemons() function
             var generateBtn = document.getElementById("generate-btn");
