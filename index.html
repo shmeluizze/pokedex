@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,67 +9,20 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
     <div id="header-container" class="ui inverted segment">
         <div class="ui inverted secondary menu">
-            <h1 id="header-text">Pokemon Index</h1>
+           <h1 id="header-text">Kanto Pokemon</h1>
         </div>
     </div>
     <div id="container">
         <div id="poke-container" class="ui cards">
-            <!-- will hold the cards for all the pokemon -->
-            <button id="generate-btn" class="ui secondary button">Generate Pokemon</button>
+                <!-- will hold the cards for all the pokemon -->
+                <button id="generate-pokemon" class="ui secondary button">Generate Pokemon</button>
         </div>
     </div>
     <div id="delete-container">
         <button id="delete-btn" class="ui red button">Delete</button>
     </div>
-    <div id="load-container">
-        <button id="load-btn" class="ui secondary button">Load More</button>
-        <script>
-            var loadBtn = document.getElementById("load-btn");
-            var itemsPerPage = 10; //  number of items to display per page
-            var currentPage = 1;  
-        
-            function showNextItems() {
-                // get all the items on the page
-                var items = document.querySelectorAll(".item");
-        
-                var startIndex = (currentPage - 1) * itemsPerPage;
-                var endIndex = startIndex + itemsPerPage;
-        
-                for (var i = 0; i < items.length; i++) {
-                    if (i >= startIndex && i < endIndex) {
-                        items[i].style.display = "block";
-                    } else {
-                        items[i].style.display = "none";
-                    }
-                }
-        
-                // increment the current page number
-                currentPage++;
-        
-                if (endIndex >= items.length) {
-                    loadBtn.style.display = "none";
-                }
-            }
-        
-            function displayPokemons() {
-                loadBtn.style.display = "block";
-                showNextItems(); 
-            }
-        
-            // Add an event listener to the generate button to call the displayPokemons() function
-            var generateBtn = document.getElementById("generate-btn");
-            generateBtn.addEventListener("click", displayPokemons);
-        
-            // Add an event listener to load the next page of items when the button is clicked
-            loadBtn.addEventListener("click", showNextItems);
-        </script>
-        
-        
-    </div>
 </body>
-
 </html>
