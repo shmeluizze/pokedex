@@ -34,6 +34,7 @@ body {
 }
 
 
+
 #load-btn {
     background-color: #4CAF50;
     color: white;
@@ -43,11 +44,19 @@ body {
     cursor: pointer;
     font-size: 16px;
     margin-top: 20px;
-    display: none;
+    display: none; /* hide the button by default */
 }
 
 @media only screen and (max-width: 768px) {
+    .item {
+        display: none; /* hide all items on small screens */
+    }
+
+    .item:nth-of-type(-n+10) {
+        display: block; /* show the first 10 items on small screens */
+    }
+
     #load-btn {
-        display: block;
+        display: block; /* show the load button on small screens */
     }
 }
