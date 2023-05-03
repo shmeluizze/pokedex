@@ -2,7 +2,7 @@
     body {
         height: 100%;
         width: 100%;
-        background-image: url(Pokemon.JPG);
+        background-image: url(pokemon.JPG);
         background-repeat: no-repeat;
         background-size: cover;
     }
