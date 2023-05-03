@@ -2,7 +2,7 @@
     body {
         height: 100%;
         width: 100%;
-        background-image: url("assets/imgages/pokemon.JPG");
+        background-image: url("https://github.com/shmeluizze/pokedex/blob/main/docs/assets/images/pokemon.jpg");
         background-repeat: no-repeat;
         background-size: cover;
     }
