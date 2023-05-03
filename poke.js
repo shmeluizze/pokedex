@@ -21,20 +21,19 @@ const API_ENDPOINTS = {
   'johto': 'https://pokeapi.co/api/v2/pokemon?limit=100&offset=151',
   'hoenn': 'https://pokeapi.co/api/v2/pokemon?limit=135&offset=251'
 };
-
-// Define a function to fetch and display Pokemon cards
+ 
 async function fetchPokemon(region) {
   try {
     // Fetch the Pokemon data for the specified region
     const response = await fetch(API_ENDPOINTS[region]);
     const data = await response.json();
     
-    // Map over the results and create a card for each Pokemon
+
     const cards = data.results.map(async (result) => {
       const pokemonResponse = await fetch(result.url);
       const pokemonData = await pokemonResponse.json();
       
-      // Extract the relevant data from the Pokemon object
+
       const id = pokemonData.id;
       const name = pokemonData.name;
       const image = pokemonData.sprites.front_default;
@@ -53,10 +52,10 @@ async function fetchPokemon(region) {
       `;
     });
     
-    // Wait for all the cards to be created before displaying them
+    
     const cardHTML = await Promise.all(cards);
     
-    // Display the cards on the page
+    
     const regionContainer = document.querySelector('.region-container');
     regionContainer.innerHTML = cardHTML.join('');
   } catch (error) {
