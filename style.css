@@ -18,21 +18,44 @@
     }
     
     .region-button {
-        padding: 5px;
-        height: 100%;
-        max-height: 50px;
-        width: 100%;
-        max-width: 100px;
+        padding: 10px;
+        height: 40px;
+        width: 120px;
+        border: 2px solid #ffcb05;
+        border-radius: 30px;
+        background-color: #fff;
+        color: #ffcb05;
+        font-weight: bold;
+        font-size: 16px;
+        text-transform: uppercase;
+        transition: all 0.3s ease-in-out;
+    }
+    
+    .region-button:hover {
+        background-color: #ffcb05;
+        color: #fff;
     }
     
     button {
-        background-color: white;
         text-align: center;
         display: block;
+        margin: 20px auto;
+        padding: 20px 30px;
+        border: none;
+        border-radius: 30px;
+        background-color: #ffcb05;
+        color: #fff;
+        font-weight: bold;
+        font-size: 16px;
+        text-transform: uppercase;
+        transition: all 0.3s ease-in-out;
+    }
+    
+    button:hover {
+        background-color: #fff;
     }
     
     #main-navbar #active-link {
-        text-decoration: line-through;
         color: white;
     }
     
@@ -101,77 +124,52 @@
         animation-delay: 0s;
         animation-duration: 0.5s;
     }
-
-
-
-/* Style for the card container */
-
-.card-container {
-    background-color: #f7f7f7;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
-    padding: 10px;
-    display: block;
-    justify-content: center;
-    gap: 20px;
-}
-
-
-/* Style for the individual card */
-
-.card {
-    background-color: #f07f7f;
-    border: 1px solid #0c0c0c;
-    border-radius: 5px;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-    grid-template-columns: repeat(4, minmax(150px, 300px));
-    display: grid;
-}
-
-.card:hover {
-    transform: scale(1.02);
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-
-/* Style for the pokemon image */
-
-.card-img {
-    border-radius: 50%;
-    width: 150px;
-    height: 150px;
-    margin: 20px auto;
-    display: block;
-}
-
-
-/* Style for the card title */
-
-.card-title {
-    font-size: 24px;
-    font-weight: bold;
-    text-transform: capitalize;
-    color: #333;
-    text-align: center;
-    margin-top: 10px;
-}
-
-
-/* Style for the card text */
-
-.card-text {
-    font-size: 16px;
-    color: #666;
-    margin-bottom: 5px;
-    text-align: center;
-}
-
-
-/* Style for the card body */
-
-.card-body {
-    padding: 10px;
-    text-align: center;
-}
+    /* Style for the card container */
+    
+    .ui.cards {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .card-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 20px;
+    }
+    
+    .card-content {
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        background-color: #f07f7f;
+        border: 1px solid #0c0c0c;
+        border-radius: 50%;
+        width: 300px;
+        height: 300px;
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    
+    .card-content img {
+        border-radius: 50%;
+        width: 150px;
+        height: 150px;
+        margin: 20px auto;
+        display: block;
+    }
+    
+    .card-info {
+        margin-top: 10px;
+        color: #333;
+        font-size: 24px;
+        font-weight: bold;
+        text-transform: capitalize;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+    
+    .card-text {
+        font-size: 16px;
+        color: #3b3939;
+        margin-bottom: 5px;
+    }

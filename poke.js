@@ -14,12 +14,13 @@ function toggleMenu() {
 }
 toggleBtn.addEventListener("click", toggleMenu);
 
-
 const API_ENDPOINTS = {
     'kanto': 'https://pokeapi.co/api/v2/pokemon?limit=151',
     'johto': 'https://pokeapi.co/api/v2/pokemon?limit=100&offset=151',
     'hoenn': 'https://pokeapi.co/api/v2/pokemon?limit=135&offset=251'
 };
+
+let currentRegion = 'kanto'; // Initialize currentRegion variable with the default region
 
 // Fetch the Pokemon data for the specified region
 async function fetchPokemon(region) {
@@ -45,39 +46,40 @@ async function fetchPokemon(region) {
     return pokemonList;
 }
 
-
 function renderAll(pokemonList) {
-
     const cardContainers = document.querySelectorAll('.ui.cards .card');
     cardContainers.forEach(container => container.remove());
 
     //new card container and add the cards to it
     const pokeContainer = document.getElementById('poke-container');
     const cardContainer = document.createElement('div');
-    cardContainer.classList.add('card');
+    cardContainer.classList.add('ui', 'cards');
     pokemonList.forEach(pokemon => {
         const card = document.createElement('div');
-        card.innerHTML = `
+        card.classList.add('card-container');
+        const cardContent = document.createElement('div');
+        cardContent.classList.add('card-content');
+        cardContent.innerHTML = `
         <img src="${pokemon.image}" alt="${pokemon.name}">
-        <div class="card-body">
+        <div class="card-info">
           <h5 class="card-title">${pokemon.name}</h5>
           <p class="card-text">Type: ${pokemon.type}</p>
           <p class="card-text">ID: ${pokemon.id}</p>
         </div>`;
+        card.appendChild(cardContent);
         cardContainer.appendChild(card);
     });
+    pokeContainer.innerHTML = '';
     pokeContainer.appendChild(cardContainer);
-    console.log(pokeContainer.offsetTop)
     window.scrollTo({
         top: pokeContainer.offsetTop - 200,
         behavior: "smooth"
-    })
-
+    });
 }
+
 
 const kantoButton = document.querySelector('#kanto-button');
 kantoButton.addEventListener('click', () => {
-
     fetchPokemon('kanto').then(pokemonList => {
         console.log(pokemonList);
         renderAll(pokemonList);
