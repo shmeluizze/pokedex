@@ -136,13 +136,14 @@
   }
   /* Style for the card container */
   
-  .ui.cards {
-      display: flex;
+   .ui.cards {
+    
       flex-wrap: wrap;
-      justify-content: center;
+      justify-content: space-between;
       display: grid;
-  }
-  
+      display: flex;
+}
+    
   .card-container {
       display: flex;
       flex-direction: column;
